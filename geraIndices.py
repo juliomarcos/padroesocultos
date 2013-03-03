@@ -10,9 +10,8 @@ def GeraIndicesPadraoOculto(sLen, pLen):
    #print 'jMaxes', jMaxes
       
    ultimoIndice = sLen - (pLen - 1)
-   listao = []
    t = range(pLen)
-   listao.append(t)
+   yield t
    print 'Ultimo Indice', ultimoIndice
    #print t
    while t[0] != ultimoIndice:
