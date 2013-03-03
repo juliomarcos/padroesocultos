@@ -1,25 +1,24 @@
 # -*- coding: cp1252 -*-
 
 def GeraIndicesPadraoOculto(sLen, pLen):
-   print 'sLen - 1 =', sLen
-   print 'pLen', pLen
+   #print 'sLen - 1 =', sLen
+   #print 'pLen', pLen
    # cada posição tem um jMax
    # em um texto de tamanho 4 estes seriam os jMax
    # (2, 3, 4)
    jMaxes = list(reversed(list(reversed([x+2 for x in range(sLen)]))[:pLen]))
-   print 'jMaxes', jMaxes
+   #print 'jMaxes', jMaxes
       
    ultimoIndice = sLen - (pLen - 1)
    listao = []
-   t = (0,1,2)
+   t = range(pLen)
    listao.append(t)
    print 'Ultimo Indice', ultimoIndice
-   print t
+   #print t
    while t[0] != ultimoIndice:
       t = ContinuaLista(t, sLen=sLen, pLen=pLen, jMaxes=jMaxes)
-      listao.append(t)
+      yield t
       #print t
-   return listao
 
 def ConstroiNovaLista(t, indiceQuebra):
    # (0, 2, 6) -> (0, 2, 3)

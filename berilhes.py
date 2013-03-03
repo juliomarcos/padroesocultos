@@ -1,9 +1,17 @@
 # -*- coding: cp1252 -*-
 from geraIndices import *
-padrao = 'aba'
+from otimizacoes import *
+
+import os
+import time
+startTime = time.clock()
+
+padrao = 'aa'
 fileName = 't1.txt'
 
-s = open(fileName).read()
+path = os.path.join('livros', fileName)
+originalString = open(path).read()
+s = RemoveCharsNotInPattern(originalString, padrao)
 sLength = len(s) - 1 # \0
 
 padraoLength = len(padrao)
@@ -34,4 +42,5 @@ nVezes = ContaPadroes(indices)
 
 print 'Padrão', "\""+padrao+"\"", 'econtrado'
 print 'Encontrado', nVezes, 'vezes' if padraoCounter > 1 else 'vez'
+print 'Levou %.3f segundos' % (time.clock()-startTime)
 
